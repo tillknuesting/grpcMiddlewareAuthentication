@@ -62,7 +62,7 @@ func (s *authServer) GetToken(ctx context.Context, in *pb.GetTokenRequest) (*pb.
 func (s *authServer) AuthFuncOverride(ctx context.Context, fullMethodName string) (context.Context, error) {
 	log.Println("client is calling method:", fullMethodName)
 
-	//this is a optional step as it should no be possible to get here otherwise anyway
+	//this is optional as it should no be possible to get anyway
 	if fullMethodName != "/helloworld.Login/GetToken" {
 		return nil, status.Errorf(codes.Unauthenticated, "no auth token used")
 	}
