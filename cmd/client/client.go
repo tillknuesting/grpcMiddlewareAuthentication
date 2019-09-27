@@ -57,7 +57,7 @@ func main() {
 	}
 	defer conn.Close()
 
-	//getting the tolen from server
+	//getting the token from server
 	token, err := getToken(conn, *user, *pass)
 	if err != nil {
 		log.Fatal(err)
