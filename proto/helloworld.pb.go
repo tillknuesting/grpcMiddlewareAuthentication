@@ -24,7 +24,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// The request message containing the user's name.
 type HelloRequest struct {
 	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -64,66 +63,158 @@ func (m *HelloRequest) GetName() string {
 	return ""
 }
 
-// The response message containing the greetings
-type HelloReply struct {
+type HelloResponse struct {
 	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *HelloReply) Reset()         { *m = HelloReply{} }
-func (m *HelloReply) String() string { return proto.CompactTextString(m) }
-func (*HelloReply) ProtoMessage()    {}
-func (*HelloReply) Descriptor() ([]byte, []int) {
+func (m *HelloResponse) Reset()         { *m = HelloResponse{} }
+func (m *HelloResponse) String() string { return proto.CompactTextString(m) }
+func (*HelloResponse) ProtoMessage()    {}
+func (*HelloResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_4d53fe9c48eadaad, []int{1}
 }
 
-func (m *HelloReply) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_HelloReply.Unmarshal(m, b)
+func (m *HelloResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HelloResponse.Unmarshal(m, b)
 }
-func (m *HelloReply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_HelloReply.Marshal(b, m, deterministic)
+func (m *HelloResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HelloResponse.Marshal(b, m, deterministic)
 }
-func (m *HelloReply) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_HelloReply.Merge(m, src)
+func (m *HelloResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HelloResponse.Merge(m, src)
 }
-func (m *HelloReply) XXX_Size() int {
-	return xxx_messageInfo_HelloReply.Size(m)
+func (m *HelloResponse) XXX_Size() int {
+	return xxx_messageInfo_HelloResponse.Size(m)
 }
-func (m *HelloReply) XXX_DiscardUnknown() {
-	xxx_messageInfo_HelloReply.DiscardUnknown(m)
+func (m *HelloResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_HelloResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_HelloReply proto.InternalMessageInfo
+var xxx_messageInfo_HelloResponse proto.InternalMessageInfo
 
-func (m *HelloReply) GetMessage() string {
+func (m *HelloResponse) GetMessage() string {
 	if m != nil {
 		return m.Message
 	}
 	return ""
 }
 
+type GetTokenRequest struct {
+	User                 string   `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	Password             string   `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetTokenRequest) Reset()         { *m = GetTokenRequest{} }
+func (m *GetTokenRequest) String() string { return proto.CompactTextString(m) }
+func (*GetTokenRequest) ProtoMessage()    {}
+func (*GetTokenRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4d53fe9c48eadaad, []int{2}
+}
+
+func (m *GetTokenRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetTokenRequest.Unmarshal(m, b)
+}
+func (m *GetTokenRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetTokenRequest.Marshal(b, m, deterministic)
+}
+func (m *GetTokenRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTokenRequest.Merge(m, src)
+}
+func (m *GetTokenRequest) XXX_Size() int {
+	return xxx_messageInfo_GetTokenRequest.Size(m)
+}
+func (m *GetTokenRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTokenRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTokenRequest proto.InternalMessageInfo
+
+func (m *GetTokenRequest) GetUser() string {
+	if m != nil {
+		return m.User
+	}
+	return ""
+}
+
+func (m *GetTokenRequest) GetPassword() string {
+	if m != nil {
+		return m.Password
+	}
+	return ""
+}
+
+type GetTokenResponse struct {
+	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetTokenResponse) Reset()         { *m = GetTokenResponse{} }
+func (m *GetTokenResponse) String() string { return proto.CompactTextString(m) }
+func (*GetTokenResponse) ProtoMessage()    {}
+func (*GetTokenResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4d53fe9c48eadaad, []int{3}
+}
+
+func (m *GetTokenResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetTokenResponse.Unmarshal(m, b)
+}
+func (m *GetTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetTokenResponse.Marshal(b, m, deterministic)
+}
+func (m *GetTokenResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTokenResponse.Merge(m, src)
+}
+func (m *GetTokenResponse) XXX_Size() int {
+	return xxx_messageInfo_GetTokenResponse.Size(m)
+}
+func (m *GetTokenResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTokenResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTokenResponse proto.InternalMessageInfo
+
+func (m *GetTokenResponse) GetToken() string {
+	if m != nil {
+		return m.Token
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*HelloRequest)(nil), "helloworld.HelloRequest")
-	proto.RegisterType((*HelloReply)(nil), "helloworld.HelloReply")
+	proto.RegisterType((*HelloResponse)(nil), "helloworld.HelloResponse")
+	proto.RegisterType((*GetTokenRequest)(nil), "helloworld.GetTokenRequest")
+	proto.RegisterType((*GetTokenResponse)(nil), "helloworld.GetTokenResponse")
 }
 
 func init() { proto.RegisterFile("proto/helloworld.proto", fileDescriptor_4d53fe9c48eadaad) }
 
 var fileDescriptor_4d53fe9c48eadaad = []byte{
-	// 166 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0x12, 0x2b, 0x28, 0xca, 0x2f,
-	0xc9, 0xd7, 0xcf, 0x48, 0xcd, 0xc9, 0xc9, 0x2f, 0xcf, 0x2f, 0xca, 0x49, 0xd1, 0x03, 0x0b, 0x08,
-	0x71, 0x21, 0x44, 0x94, 0x94, 0xb8, 0x78, 0x3c, 0x40, 0xbc, 0xa0, 0xd4, 0xc2, 0xd2, 0xd4, 0xe2,
-	0x12, 0x21, 0x21, 0x2e, 0x96, 0xbc, 0xc4, 0xdc, 0x54, 0x09, 0x46, 0x05, 0x46, 0x0d, 0xce, 0x20,
-	0x30, 0x5b, 0x49, 0x8d, 0x8b, 0x0b, 0xaa, 0xa6, 0x20, 0xa7, 0x52, 0x48, 0x82, 0x8b, 0x3d, 0x37,
-	0xb5, 0xb8, 0x38, 0x31, 0x1d, 0xa6, 0x08, 0xc6, 0x35, 0x9a, 0xc6, 0xc8, 0xc5, 0xee, 0x5e, 0x94,
-	0x9a, 0x5a, 0x92, 0x5a, 0x24, 0x64, 0xc7, 0xc5, 0x11, 0x9c, 0x58, 0x09, 0xd6, 0x26, 0x24, 0xa1,
-	0x87, 0xe4, 0x04, 0x64, 0xdb, 0xa4, 0xc4, 0xb0, 0xc8, 0x00, 0xed, 0x50, 0x62, 0x10, 0xf2, 0xe6,
-	0x12, 0x85, 0xe9, 0x77, 0x2c, 0x2d, 0xc9, 0x48, 0xcd, 0x2b, 0xc9, 0x4c, 0x4e, 0x2c, 0x49, 0x4d,
-	0x21, 0xc7, 0xb0, 0x24, 0x36, 0xb0, 0xbf, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x7f, 0x04,
-	0x54, 0x7b, 0x11, 0x01, 0x00, 0x00,
+	// 242 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x6c, 0x90, 0x41, 0x4f, 0xc3, 0x30,
+	0x0c, 0x85, 0x19, 0x62, 0x6c, 0x58, 0x20, 0x90, 0x05, 0x28, 0x14, 0x0e, 0x28, 0xa7, 0x71, 0x19,
+	0xd2, 0xf8, 0x05, 0x3b, 0x95, 0x03, 0x42, 0x68, 0x70, 0xe1, 0x18, 0xa8, 0xb5, 0x4d, 0x74, 0x49,
+	0x89, 0x5d, 0x21, 0xfe, 0x3d, 0x6b, 0xd6, 0xb0, 0x68, 0xea, 0xcd, 0xef, 0xd9, 0xf9, 0xec, 0x17,
+	0xb8, 0xac, 0xbc, 0x13, 0x77, 0xbf, 0xa0, 0xb2, 0x74, 0x3f, 0xce, 0x97, 0xc5, 0x38, 0x18, 0x08,
+	0x5b, 0x47, 0x6b, 0x38, 0x7e, 0x6c, 0xd4, 0x8c, 0xbe, 0x6b, 0x62, 0x41, 0x84, 0x03, 0x6b, 0x56,
+	0xa4, 0x7a, 0xb7, 0xbd, 0xd1, 0xd1, 0x2c, 0xd4, 0xfa, 0x0e, 0x4e, 0xda, 0x19, 0xae, 0x9c, 0x65,
+	0x42, 0x05, 0x83, 0x15, 0x31, 0x9b, 0x79, 0x9c, 0x8b, 0x52, 0x4f, 0xe1, 0x34, 0x27, 0x79, 0x73,
+	0x5f, 0x64, 0x13, 0x62, 0xcd, 0xe4, 0x23, 0xb1, 0xa9, 0x31, 0x83, 0x61, 0x65, 0x98, 0xd7, 0x27,
+	0x14, 0x6a, 0x3f, 0xf8, 0xff, 0x5a, 0x8f, 0xe0, 0x6c, 0x8b, 0x68, 0x17, 0x9e, 0x43, 0x5f, 0x1a,
+	0xa3, 0x85, 0x6c, 0xc4, 0xe4, 0x1d, 0x06, 0xb9, 0x27, 0x92, 0x35, 0xf0, 0x19, 0x2e, 0x5e, 0xcd,
+	0x6f, 0xb8, 0x72, 0x5a, 0xcb, 0x82, 0xac, 0x2c, 0x3f, 0x8d, 0x50, 0x81, 0x6a, 0x9c, 0xc4, 0x4f,
+	0x93, 0x66, 0x57, 0x1d, 0x9d, 0xcd, 0x3a, 0xbd, 0x37, 0x79, 0x81, 0xfe, 0x93, 0x9b, 0x2f, 0x2d,
+	0xe6, 0x30, 0x8c, 0xd7, 0xe0, 0x75, 0xfa, 0x62, 0x27, 0x66, 0x76, 0xd3, 0xdd, 0x8c, 0xc4, 0x8f,
+	0xc3, 0xf0, 0xf7, 0x0f, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x08, 0x05, 0x4b, 0x6b, 0x95, 0x01,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -138,9 +229,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GreeterClient interface {
-	// Sends a greeting
-	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
-	SayHelloAuthenticated(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+	SayHelloAuthenticated(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
 }
 
 type greeterClient struct {
@@ -151,17 +240,8 @@ func NewGreeterClient(cc *grpc.ClientConn) GreeterClient {
 	return &greeterClient{cc}
 }
 
-func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *greeterClient) SayHelloAuthenticated(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
+func (c *greeterClient) SayHelloAuthenticated(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
+	out := new(HelloResponse)
 	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHelloAuthenticated", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -171,42 +251,19 @@ func (c *greeterClient) SayHelloAuthenticated(ctx context.Context, in *HelloRequ
 
 // GreeterServer is the server API for Greeter service.
 type GreeterServer interface {
-	// Sends a greeting
-	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
-	SayHelloAuthenticated(context.Context, *HelloRequest) (*HelloReply, error)
+	SayHelloAuthenticated(context.Context, *HelloRequest) (*HelloResponse, error)
 }
 
 // UnimplementedGreeterServer can be embedded to have forward compatible implementations.
 type UnimplementedGreeterServer struct {
 }
 
-func (*UnimplementedGreeterServer) SayHello(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
-}
-func (*UnimplementedGreeterServer) SayHelloAuthenticated(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
+func (*UnimplementedGreeterServer) SayHelloAuthenticated(ctx context.Context, req *HelloRequest) (*HelloResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHelloAuthenticated not implemented")
 }
 
 func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
 	s.RegisterService(&_Greeter_serviceDesc, srv)
-}
-
-func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelloRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GreeterServer).SayHello(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/helloworld.Greeter/SayHello",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreeterServer).SayHello(ctx, req.(*HelloRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _Greeter_SayHelloAuthenticated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -232,12 +289,80 @@ var _Greeter_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*GreeterServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SayHello",
-			Handler:    _Greeter_SayHello_Handler,
-		},
-		{
 			MethodName: "SayHelloAuthenticated",
 			Handler:    _Greeter_SayHelloAuthenticated_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/helloworld.proto",
+}
+
+// LoginClient is the client API for Login service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type LoginClient interface {
+	GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
+}
+
+type loginClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewLoginClient(cc *grpc.ClientConn) LoginClient {
+	return &loginClient{cc}
+}
+
+func (c *loginClient) GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
+	out := new(GetTokenResponse)
+	err := c.cc.Invoke(ctx, "/helloworld.Login/GetToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LoginServer is the server API for Login service.
+type LoginServer interface {
+	GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
+}
+
+// UnimplementedLoginServer can be embedded to have forward compatible implementations.
+type UnimplementedLoginServer struct {
+}
+
+func (*UnimplementedLoginServer) GetToken(ctx context.Context, req *GetTokenRequest) (*GetTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetToken not implemented")
+}
+
+func RegisterLoginServer(s *grpc.Server, srv LoginServer) {
+	s.RegisterService(&_Login_serviceDesc, srv)
+}
+
+func _Login_GetToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoginServer).GetToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/helloworld.Login/GetToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoginServer).GetToken(ctx, req.(*GetTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Login_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "helloworld.Login",
+	HandlerType: (*LoginServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetToken",
+			Handler:    _Login_GetToken_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
