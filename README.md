@@ -1,2 +1,2 @@
 # grpcMiddlewareAuthentication
-This is an example implementation of using [go-grpc-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware) auth package for header based authentication. The main goal is here to show the usage of AuthFuncOverride so that the auth middleware makes an exeption for the getToken methods.
+This is an example implementation of using [go-grpc-middleware](https://github.com/grpc-ecosystem/go-grpc-middleware) auth package for header based authentication. The main goal is here to show the usage of AuthFuncOverride so that the auth middleware makes an exeption for the getToken methods and need not to be authenticated. This would make sende when there is a "get token" service on the same server as authenticated services.
