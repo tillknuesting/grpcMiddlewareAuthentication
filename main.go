@@ -24,7 +24,7 @@ var (
 
 //AuthFunc is a middleware (interceptor) that extracts token from header
 func AuthFunc(ctx context.Context) (context.Context, error) {
-	token, err := grpc_auth.AuthFromMD(ctx, "bearer")
+	token, err := grpc_auth.AuthFromMD(ctx, "basic")
 	if err != nil {
 		return nil, err
 	}
