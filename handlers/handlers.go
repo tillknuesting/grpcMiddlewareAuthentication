@@ -11,10 +11,13 @@ import (
 )
 
 //implements methods that are intercepted by AuthFunc
-type ServerAuthenticated struct{}
+type ServerAuthenticated struct{
+	pb.UnimplementedGreeterServer
+}
 
 //implements methods that are intercepted by AuthFuncOverride
 type ServerUnauthenticated struct {
+	pb.UnimplementedLoginServer
 	SigningSecret []byte
 }
 
@@ -47,8 +50,8 @@ func (s *ServerUnauthenticated) GetToken(ctx context.Context, in *pb.GetTokenReq
 func (s *ServerUnauthenticated) AuthFuncOverride(ctx context.Context, fullMethodName string) (context.Context, error) {
 	log.Println("client is calling method:", fullMethodName)
 
-	//this is optional as it should no be possible to get here anyway
-	//if fullMethodName != "/helloworld.Login/GetToken" {
+	////this check is optional as it should no be possible to get here anyway
+	//if fullMethodName != "/grpcMiddlewareAuth.Login/GetToken" {
 	//	return nil, status.Errorf(codes.Unauthenticated, "no token")
 	//}
 

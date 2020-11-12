@@ -1,5 +1,8 @@
 syntax = "proto3";
-package helloworld;
+package grpcMiddlewareAuth;
+option go_package = "proto;grpcMiddlewareAuth";
+
+
 
 service Greeter {
   rpc SayHelloAuthenticated (HelloRequest) returns (HelloResponse) {}
