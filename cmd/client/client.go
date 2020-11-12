@@ -22,7 +22,6 @@ func getToken(conn *grpc.ClientConn, user string, pass string) (string, error) {
 		User:     user,
 		Password: pass,
 	})
-
 	if err != nil {
 		return "", err
 	}
@@ -40,7 +39,6 @@ func greetWithToken(conn *grpc.ClientConn, token string, name string) (string, e
 	// Make RPC using the context with the metadata.
 	var header, trailer metadata.MD
 	r, err := c.SayHelloAuthenticated(ctx, &pb.HelloRequest{Name: name}, grpc.Header(&header), grpc.Trailer(&trailer))
-
 	if err != nil {
 		return "", err
 	}
@@ -60,7 +58,6 @@ func main() {
 
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(*addr, grpc.WithInsecure())
-
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
@@ -69,7 +66,6 @@ func main() {
 
 	// getting the token from server
 	token, err := getToken(conn, *user, *pass)
-
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -78,7 +74,6 @@ func main() {
 
 	// greeting the server with auth token
 	m, err := greetWithToken(conn, token, *name)
-
 	if err != nil {
 		log.Fatal(err)
 	}

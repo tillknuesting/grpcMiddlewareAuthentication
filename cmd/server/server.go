@@ -2,12 +2,13 @@ package main
 
 import (
 	"flag"
-	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
-	grpcauth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	"grpcMiddlewareAuth/internal/handlers"
 	"grpcMiddlewareAuth/pkg/authentication"
 	"log"
 	"net"
+
+	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpcauth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 
 	"google.golang.org/grpc"
 
@@ -23,7 +24,6 @@ func main() {
 	flag.Parse()
 
 	lis, err := net.Listen("tcp", *addr)
-
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

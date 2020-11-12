@@ -22,7 +22,7 @@ func TestEnv_AuthFunc(t *testing.T) {
 	}{
 		//{ name: "alice", fields: fields{SecretSigningKey: []byte("testtest")}, args: args{ctx: nil}, want: nil, wantErr: nil},
 	}
-		for _, tt := range tests {
+	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			env := &Env{
 				SecretSigningKey: tt.fields.SecretSigningKey,

@@ -7,11 +7,12 @@
 package grpcMiddlewareAuth
 
 import (
+	reflect "reflect"
+	sync "sync"
+
 	proto "github.com/golang/protobuf/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -268,13 +269,16 @@ func file_pkg_proto_helloworld_proto_rawDescGZIP() []byte {
 	return file_pkg_proto_helloworld_proto_rawDescData
 }
 
-var file_pkg_proto_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_pkg_proto_helloworld_proto_goTypes = []interface{}{
-	(*HelloRequest)(nil),     // 0: grpcMiddlewareAuth.HelloRequest
-	(*HelloResponse)(nil),    // 1: grpcMiddlewareAuth.HelloResponse
-	(*GetTokenRequest)(nil),  // 2: grpcMiddlewareAuth.GetTokenRequest
-	(*GetTokenResponse)(nil), // 3: grpcMiddlewareAuth.GetTokenResponse
-}
+var (
+	file_pkg_proto_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+	file_pkg_proto_helloworld_proto_goTypes  = []interface{}{
+		(*HelloRequest)(nil),     // 0: grpcMiddlewareAuth.HelloRequest
+		(*HelloResponse)(nil),    // 1: grpcMiddlewareAuth.HelloResponse
+		(*GetTokenRequest)(nil),  // 2: grpcMiddlewareAuth.GetTokenRequest
+		(*GetTokenResponse)(nil), // 3: grpcMiddlewareAuth.GetTokenResponse
+	}
+)
+
 var file_pkg_proto_helloworld_proto_depIdxs = []int32{
 	0, // 0: grpcMiddlewareAuth.Greeter.SayHelloAuthenticated:input_type -> grpcMiddlewareAuth.HelloRequest
 	2, // 1: grpcMiddlewareAuth.Login.GetToken:input_type -> grpcMiddlewareAuth.GetTokenRequest

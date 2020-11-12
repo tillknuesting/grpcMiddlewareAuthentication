@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-//good practice to not use basic types as value in context to avoid collisions
+// good practice to not use basic types as value in context to avoid collisions
 type (
 	authenticated     bool
 	usernameFromClaim string
@@ -26,7 +26,7 @@ type Env struct {
 	SecretSigningKey []byte
 }
 
-//AuthFunc is a middleware (interceptor) that extracts token from header
+// AuthFunc is a middleware (interceptor) that extracts token from header
 func (env *Env) AuthFunc(ctx context.Context) (context.Context, error) {
 	token, err := grpc_auth.AuthFromMD(ctx, "Bearer")
 	if err != nil {
@@ -34,12 +34,11 @@ func (env *Env) AuthFunc(ctx context.Context) (context.Context, error) {
 	}
 
 	username, err := validateToken(token, env.SecretSigningKey)
-
 	if err != nil {
 		return nil, status.Errorf(codes.Unauthenticated, "invalid auth token: %v", err)
 	}
 
-	//set meta data in context for possible later validation
+	// set meta data in context for possible later validation
 	newCtx := context.WithValue(ctx, Authenticated, true)
 	newCtx = context.WithValue(newCtx, UsernameFromClaim, username)
 
@@ -63,7 +62,6 @@ func GenerateToken(username string, signingSecret []byte) (string, error) {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	signedToken, err := token.SignedString(signingSecret)
-
 	if err != nil {
 		return signedToken, err
 	}
@@ -79,7 +77,6 @@ func validateToken(tokenString string, signingSecret []byte) (string, error) {
 		}
 		return signingSecret, nil
 	})
-
 	if err != nil {
 		return "", err
 	}
