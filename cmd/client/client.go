@@ -53,7 +53,7 @@ func main() {
 		user = flag.String("user", "test", "username")
 		pass = flag.String("password", "test", "password of user")
 		name = flag.String("name", "Alice", "name for greeting")
-		addr = flag.String("address", ":50051", "address of server")
+		addr = flag.String("address", ":5050", "address of server")
 	)
 
 	flag.Parse()
@@ -67,7 +67,7 @@ func main() {
 
 	defer conn.Close()
 
-	//getting the token from server
+	// getting the token from server
 	token, err := getToken(conn, *user, *pass)
 
 	if err != nil {
@@ -76,7 +76,7 @@ func main() {
 
 	log.Printf("Token: %v", token)
 
-	//greeting the server with auth token
+	// greeting the server with auth token
 	m, err := greetWithToken(conn, token, *name)
 
 	if err != nil {

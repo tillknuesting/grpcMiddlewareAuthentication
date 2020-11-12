@@ -1,4 +1,3 @@
-// Package main implements a serverAuthenticated for Greeter service.
 package main
 
 import (
@@ -18,8 +17,8 @@ import (
 
 func main() {
 	var (
-		addr   = flag.String("address", ":50051", "address of serverAuthenticated")
-		secret = flag.String("secret", "randomString", "secret to sign Tokens")
+		addr   = flag.String("address", ":5050", "address of serverAuthenticated")
+		secret = flag.String("secret", "IkWgP3DCsrMJ", "secret to sign tokens")
 	)
 
 	flag.Parse()
