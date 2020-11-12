@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	pb "grpcMiddlewareAuth/proto"
+	pb "grpcMiddlewareAuth/pkg/proto"
 )
 
 func getToken(conn *grpc.ClientConn, user string, pass string) (string, error) {

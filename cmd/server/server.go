@@ -3,15 +3,15 @@ package main
 import (
 	"flag"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
-	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
-	"grpcMiddlewareAuth/authentication"
-	"grpcMiddlewareAuth/handlers"
+	grpcauth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
+	"grpcMiddlewareAuth/internal/handlers"
+	"grpcMiddlewareAuth/pkg/authentication"
 	"log"
 	"net"
 
 	"google.golang.org/grpc"
 
-	pb "grpcMiddlewareAuth/proto"
+	pb "grpcMiddlewareAuth/pkg/proto"
 )
 
 func main() {
@@ -33,7 +33,7 @@ func main() {
 
 	s := grpc.NewServer(
 		grpc.UnaryInterceptor(grpcMiddleware.ChainUnaryServer(
-			grpc_auth.UnaryServerInterceptor(env.AuthFunc),
+			grpcauth.UnaryServerInterceptor(env.AuthFunc),
 		)),
 	)
 

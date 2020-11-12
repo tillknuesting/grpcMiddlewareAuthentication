@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"context"
-	"grpcMiddlewareAuth/authentication"
-	pb "grpcMiddlewareAuth/proto"
+	"grpcMiddlewareAuth/pkg/authentication"
+	pb "grpcMiddlewareAuth/pkg/proto"
 	"log"
 
 	"google.golang.org/grpc/codes"

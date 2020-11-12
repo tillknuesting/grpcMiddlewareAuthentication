@@ -86,7 +86,7 @@ var _Greeter_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/helloworld.proto",
+	Metadata: "pkg/proto/helloworld.proto",
 }
 
 // LoginClient is the client API for Login service.
@@ -162,5 +162,5 @@ var _Login_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/helloworld.proto",
+	Metadata: "pkg/proto/helloworld.proto",
 }
