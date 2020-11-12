@@ -48,9 +48,9 @@ func (s *ServerUnauthenticated) AuthFuncOverride(ctx context.Context, fullMethod
 	log.Println("client is calling method:", fullMethodName)
 
 	//this is optional as it should no be possible to get here anyway
-	if fullMethodName != "/helloworld.Login/GetToken" {
-		return nil, status.Errorf(codes.Unauthenticated, "no token")
-	}
+	//if fullMethodName != "/helloworld.Login/GetToken" {
+	//	return nil, status.Errorf(codes.Unauthenticated, "no token")
+	//}
 
 	return ctx, nil
 }
