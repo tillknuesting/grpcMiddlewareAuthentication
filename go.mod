@@ -5,7 +5,7 @@ go 1.15
 require (
 	cloud.google.com/go v0.72.0 // indirect
 	github.com/form3tech-oss/jwt-go v3.2.2+incompatible
-	github.com/gogo/protobuf v1.3.1 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.4.3
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2
 	github.com/kr/text v0.2.0 // indirect
